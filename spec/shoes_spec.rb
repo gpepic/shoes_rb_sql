@@ -17,4 +17,9 @@ describe :shoes do
 		expect(Shoes.all).to eq []
 	end
 
+	it 'lets you save shoes into the database' do
+		shoes = Shoes.new('Nike')
+		shoes.save
+		expect(Shoes.all).to eq [brand]
+	end
 end

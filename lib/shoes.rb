@@ -1,3 +1,5 @@
+require 'pg'
+
 class Shoes
 	def initialize(brand)
 		@brand = brand
