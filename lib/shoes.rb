@@ -6,4 +6,8 @@ class Shoes
 	def brand
 		@brand
 	end
+
+	def self.all
+		[]
+	end
 end

@@ -12,4 +12,9 @@ describe :shoes do
 		shoes = Shoes.new('Nike')
 		expect(shoes.brand).to eq('Nike')
 	end
+
+	it 'starts with no shoes' do
+		expect(Shoes.all).to eq []
+	end
+
 end
