@@ -4,14 +4,19 @@ class Shoes
 
 	# attr_reader :brand, :shoes
 
-	def initialize(brand)
+	def initialize(brand, style_id)
 		@brand = brand
+		@style_id = style_id
 		# @shoes = []
 		# @brand = att[:brand].to_s
 	end
 
 	def brand
 		@brand
+	end
+
+	def style_id
+		@style_id
 	end
 
 	def save

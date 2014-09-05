@@ -23,8 +23,8 @@ describe :shoes do
 	end
 
 	it 'tells you its style ID' do
-		brand = Shoes.new('Nike', 1)
-		expect(brand.style_id). to eq 1
+		shoes = Shoes.new('Nike', 1)
+		expect(shoes.style_id). to eq 1
 	end
 
 	it 'starts with no shoes' do

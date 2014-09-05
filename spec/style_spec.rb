@@ -22,8 +22,8 @@ describe :style do
 	end
 
 	it 'is the same style if it has the same name' do
-		style1 = Shoes.new('Fly Low')
-		style2 = Shoes.new('Fly Low')
+		style1 = Style.new('Fly Low')
+		style2 = Style.new('Fly Low')
 		expect(style1).to eq style2
 	end
 
