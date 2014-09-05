@@ -32,8 +32,8 @@ class Shoes
 		shoes
 	end
 
-	# def ==(another_shoes)
-	# 	self.brand == another_shoes.brand
-	# end
+	def ==(another_shoes)
+		self.brand == another_shoes.brand
+	end
 
 end

@@ -2,7 +2,13 @@ require 'rspec'
 require 'pg'
 require './lib/shoes'
 
-DB = PG.connect({:dbname => 'shoes_app_test'})
+DB = PG.connect(:dbname => 'shoes_app_test')
+
+RSpec.configure do |config|
+	config.after(:each) do
+		DB.exec("DELETE FROM shoes *;")
+	end
+end
 
 describe :shoes do
 
@@ -23,12 +29,12 @@ describe :shoes do
 	it 'lets you save shoes into the database' do
 		shoes = Shoes.new('Adidas')
 		shoes.save
-		expect(Shoes.all).to eq [brand]
+		expect(Shoes.all).to eq [shoes]
 	end
 
-	# it 'is the same shoes if it has the same brand' do
-	# 	shoes1 = Shoes.new('Adidas')
-	# 	shoes2 = Shoes.new('Adidas')
-	# 	expect(shoes1).to eq shoes2
-	# end
+	it 'is the same shoes if it has the same brand' do
+		shoes1 = Shoes.new('Adidas')
+		shoes2 = Shoes.new('Adidas')
+		expect(shoes1).to eq shoes2
+	end
 end
