@@ -4,7 +4,7 @@ require './lib/shoes'
 describe :shoes do
 
 	it 'is initialized with a brand' do
-		shoes = Shoes.new('Nike')
+		shoes = Shoes.new('Converse')
 		expect(shoes).to be_an_instance_of(Shoes)
 	end
 
@@ -18,8 +18,8 @@ describe :shoes do
 	end
 
 	it 'lets you save shoes into the database' do
-		shoes = Shoes.new('Nike')
+		test_shoes = Shoes.new('Adidas')
 		shoes.save
-		expect(Shoes.all).to eq [brand]
+		expect(test_shoes.all).to eq [brand]
 	end
 end
