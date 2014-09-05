@@ -31,4 +31,10 @@ describe :style do
 		expect(Style.all).to eq []
 	end 
 
+	it 'lets you save styles to the database' do
+		style = Style.new('Fly Low')
+		style.save
+		expect(Style.all).to eq [style]
+	end
+
 end

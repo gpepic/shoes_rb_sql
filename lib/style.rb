@@ -17,10 +17,14 @@ class Style
 		results = DB.exec("SELECT * FROM style;")
 		style = []
 		results.each do |result|
-			name - result['name']
+			name = result['name']
 			style << Style.new(name)
 		end
 		style	
+	end
+
+	def save
+		DB.exec("INSERT INTO style (name) VALUES ('#{@name}');")
 	end
 
 end
