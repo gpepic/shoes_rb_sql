@@ -10,6 +10,10 @@ class Style
 		@name
 	end
 
+	def id
+		@id
+	end
+
 	def ==(another_style)
 		self.name == another_style.name
 	end
@@ -19,7 +23,8 @@ class Style
 		style = []
 		results.each do |result|
 			name = result['name']
-			style << Style.new(name)
+			id = result['id'].to_i
+			style << Style.new(name, id)
 		end
 		style	
 	end
@@ -27,10 +32,6 @@ class Style
 	def save
 		results = DB.exec("INSERT INTO style (name) VALUES ('#{@name}') RETURNING id;")
 		@id = results.first['id'].to_i
-	end
-
-	def id
-		@id
 	end
 
 end
