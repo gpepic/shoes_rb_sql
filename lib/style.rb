@@ -1,8 +1,9 @@
 
 
 class Style
-	def initialize(name)
+	def initialize(name, id=nil)
 		@name = name
+		@id = id
 	end
 
 	def name

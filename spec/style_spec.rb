@@ -43,4 +43,9 @@ describe :style do
 		expect(style.id).to be_an_instance_of Fixnum
 	end
 
+	it 'can be initialized with its database ID' do	
+		style = Style.new('Nike', 1)
+		expect(style).to be_an_instance_of Style
+	end
+
 end
