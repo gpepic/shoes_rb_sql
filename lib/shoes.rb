@@ -22,7 +22,7 @@ class Shoes
 	def save
 		# shoes = []
 		# database = PG.connect(:dbname => 'shoes_app')
-		DB.exec("INSERT INTO shoes (brand, style_id) VALUES ('#{@brand}, #{@style_id}');")
+		DB.exec("INSERT INTO shoes (brand, style_id) VALUES ('#{@brand}', #{@style_id});")
 		# shoes << Shoes.new(brand)
 	end
 
