@@ -18,8 +18,8 @@ describe :shoes do
 	end
 
 	it 'tells you its brand' do
-		shoes = Shoes.new('Nike')
-		expect(shoes.brand).to eq('Nike', 1)
+		shoes = Shoes.new('Nike', 1)
+		expect(shoes.brand).to eq('Nike')
 	end
 
 	it 'tells you its style ID' do
