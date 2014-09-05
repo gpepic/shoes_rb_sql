@@ -12,6 +12,7 @@ end
 
 describe :style do
 	it 'is initialized with a name' do
-
+		style = Style.new('Fly Low')
+		expect(style).to be_an_instance_of Style
 	end
 end
