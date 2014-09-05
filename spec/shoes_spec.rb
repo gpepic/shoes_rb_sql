@@ -1,5 +1,8 @@
 require 'rspec'
+require 'pg'
 require './lib/shoes'
+
+DB = PG.connect({:dbname => 'shoes_app_test'})
 
 describe :shoes do
 
@@ -18,8 +21,14 @@ describe :shoes do
 	end
 
 	it 'lets you save shoes into the database' do
-		test_shoes = Shoes.new('Adidas')
+		shoes = Shoes.new('Adidas')
 		shoes.save
-		expect(test_shoes.all).to eq [brand]
+		expect(Shoes.all).to eq [brand]
 	end
+
+	# it 'is the same shoes if it has the same brand' do
+	# 	shoes1 = Shoes.new('Adidas')
+	# 	shoes2 = Shoes.new('Adidas')
+	# 	expect(shoes1).to eq shoes2
+	# end
 end

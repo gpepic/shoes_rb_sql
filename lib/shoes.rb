@@ -2,10 +2,12 @@ require 'pg'
 
 class Shoes
 
-	attr_reader :brand
+	# attr_reader :brand, :shoes
 
 	def initialize(brand)
 		@brand = brand
+		# @shoes = []
+		# @brand = att[:brand].to_s
 	end
 
 	def brand
@@ -13,18 +15,25 @@ class Shoes
 	end
 
 	def save
-		database = PG.connect(:dbname => 'shoes_app')
-		database.exec("INSERT INTO shoes (brand) VALUES ('#{@brand}');")
+		# shoes = []
+		# database = PG.connect(:dbname => 'shoes_app')
+		DB.exec("INSERT INTO shoes (brand) VALUES ('#{@brand}');")
+		# shoes << Shoes.new(brand)
 	end
 
 	def self.all
-		database = PG.connect(:dbname => 'shoes_app')
-		results = database.exec("SELECT * FROM shoes;")
+		# database = PG.connect(:dbname => 'shoes_app')
+		results = DB.exec("SELECT * FROM shoes;")
 		shoes = []
 		results.each do |result|
-			:brand = result[shoes.brand]
+			brand = result['brand']
 			shoes << Shoes.new(brand)
 		end
 		shoes
 	end
+
+	# def ==(another_shoes)
+	# 	self.brand == another_shoes.brand
+	# end
+
 end
