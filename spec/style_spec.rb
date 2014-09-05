@@ -27,4 +27,8 @@ describe :style do
 		expect(style1).to eq style2
 	end
 
+	it 'starts off with no styles' do
+		expect(Style.all).to eq []
+	end 
+
 end
