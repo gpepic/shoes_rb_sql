@@ -22,7 +22,7 @@ class Shoes
 	def save
 		# shoes = []
 		# database = PG.connect(:dbname => 'shoes_app')
-		DB.exec("INSERT INTO shoes (brand) VALUES ('#{@brand}');")
+		DB.exec("INSERT INTO shoes (brand, style_id) VALUES ('#{@brand}, #{@style_id}');")
 		# shoes << Shoes.new(brand)
 	end
 
@@ -32,13 +32,14 @@ class Shoes
 		shoes = []
 		results.each do |result|
 			brand = result['brand']
-			shoes << Shoes.new(brand)
+			style_id = result['style_id'].to_i
+			shoes << Shoes.new(brand, style_id)
 		end
 		shoes
 	end
 
 	def ==(another_shoes)
-		self.brand == another_shoes.brand
+		self.brand == another_shoes.brand && self.style_id == another_shoes.style_id
 	end
 
 end
