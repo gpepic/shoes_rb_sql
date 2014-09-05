@@ -10,7 +10,7 @@ class Style
 	end
 
 	def ==(another_style)
-		self.name == another_shoes.name
+		self.name == another_style.name
 	end
 
 end
