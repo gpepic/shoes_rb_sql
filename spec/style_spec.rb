@@ -37,4 +37,10 @@ describe :style do
 		expect(Style.all).to eq [style]
 	end
 
+	it 'sets its ID when you save it' do
+		style = Style.new('Nike')
+		style.save
+		expect(style.id).to be_an_instance_of Fixnum
+	end
+
 end

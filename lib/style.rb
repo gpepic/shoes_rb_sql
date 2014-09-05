@@ -24,7 +24,12 @@ class Style
 	end
 
 	def save
-		DB.exec("INSERT INTO style (name) VALUES ('#{@name}');")
+		results = DB.exec("INSERT INTO style (name) VALUES ('#{@name}') RETURNING id;")
+		@id = results.first['id'].to_i
+	end
+
+	def id
+		@id
 	end
 
 end
