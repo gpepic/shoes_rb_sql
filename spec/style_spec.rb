@@ -15,4 +15,16 @@ describe :style do
 		style = Style.new('Fly Low')
 		expect(style).to be_an_instance_of Style
 	end
+
+	it 'tells you its name' do
+		style = Style.new('Fly Low')
+		expect(style.name).to eq 'Fly Low'
+	end
+
+	it 'is the same style if it has the same name' do
+		style1 = Shoes.new('Fly Low')
+		style2 = Shoes.new('Fly Low')
+		expect(style1).to eq style2
+	end
+
 end
